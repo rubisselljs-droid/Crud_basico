@@ -1,6 +1,6 @@
 import  { useState,useEffect} from "react";
 import { supabase } from "./CreateClient";
-
+import './App.css';
 
 
 
@@ -17,9 +17,6 @@ export default function App() {
       .select('*')
       setUsers(data)
       console.log(data);
-  
-
-    
   }
 
   useEffect(() => {
@@ -36,6 +33,17 @@ export default function App() {
             <th>Email</th>
           </tr>
         </thead>
+
+
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.age}</td>
+            </tr>
+          ))}
+        </tbody>
 
       </table>
     </div>
